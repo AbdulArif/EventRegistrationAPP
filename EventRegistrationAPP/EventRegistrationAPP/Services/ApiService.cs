@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
@@ -34,5 +35,22 @@ namespace EventRegistrationAPP.Services
                 return true;
         }
         #endregion
+
+
+        #region Get ALL Events
+        public static async Task<List<EventsInfo>> GetAllEvents(string accessToken)
+        {
+            var client = new HttpClient();
+
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+
+            var json = await client.GetStringAsync(Constants.ApiUrl + "Events/GetAllEventsInfo");
+
+            var events = JsonConvert.DeserializeObject<List<EventsInfo>>(json);
+
+            return events;
+        }
+        #endregion
+
     }
 }

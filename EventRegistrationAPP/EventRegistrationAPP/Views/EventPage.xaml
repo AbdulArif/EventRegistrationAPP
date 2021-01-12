@@ -106,19 +106,19 @@
                                             </Grid.ColumnDefinitions>
                                             <Label  Grid.Column="0" 
                                                     x:Name="LblEventName" 
-                                                    FontSize="16" 
+                                                    FontSize="17" 
                                                     TextColor="Black"
                                                     Text="{Binding EventName}" />
                                             <Label  Grid.Column="1" 
                                                     x:Name="LblEventDate" 
-                                                    FontSize="16" 
+                                                    FontSize="17" 
                                                     TextColor="Black"
-                                                    Text="{Binding EventDate}" />
+                                                    Text="{Binding EventDate, StringFormat='{0:MMMM dd, yyyy}'}" />
                                             <Label  Grid.Column="2" 
                                                     x:Name="LblTime" 
-                                                    FontSize="16" 
+                                                    FontSize="17" 
                                                     TextColor="Black"
-                                                    Text="{Binding Time}" />
+                                                    Text="{Binding EventHours, StringFormat='{}{0:hh\\:mm}'}" />
                                             <!--<Label  Grid.Column="3" 
                                                     x:Name="LblCity" 
                                                     FontSize="16" 
