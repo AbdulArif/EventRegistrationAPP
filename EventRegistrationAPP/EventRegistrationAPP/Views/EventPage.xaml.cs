@@ -31,7 +31,13 @@ namespace EventRegistrationAPP.Views
             {
                 EventsCollection.Add(donor);
             }
-            DonorListView.ItemsSource = EventsCollection;
+            EventsListView.ItemsSource = EventsCollection;
+           // LblInstructions.Text = EventsCollection[0].EventDescription;
+        }
+
+        private void EventsListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            Navigation.PushModalAsync(new EventFormPage());
         }
 
 

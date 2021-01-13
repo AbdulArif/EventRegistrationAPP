@@ -92,8 +92,8 @@
                         </Grid>
                     </Frame>
 
-                    <Frame>
-                        <ListView x:Name="DonorListView" >
+                    <Frame HasShadow="True">
+                        <ListView x:Name="EventsListView" ItemTapped="EventsListView_ItemTapped" >
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <ViewCell>
@@ -106,17 +106,20 @@
                                             </Grid.ColumnDefinitions>
                                             <Label  Grid.Column="0" 
                                                     x:Name="LblEventName" 
-                                                    FontSize="17" 
+                                                    FontSize="17"
+                                                    VerticalTextAlignment="Center"
                                                     TextColor="Black"
                                                     Text="{Binding EventName}" />
                                             <Label  Grid.Column="1" 
                                                     x:Name="LblEventDate" 
-                                                    FontSize="17" 
+                                                    FontSize="17"
+                                                    VerticalTextAlignment="Center"
                                                     TextColor="Black"
                                                     Text="{Binding EventDate, StringFormat='{0:MMMM dd, yyyy}'}" />
                                             <Label  Grid.Column="2" 
                                                     x:Name="LblTime" 
-                                                    FontSize="17" 
+                                                    FontSize="17"
+                                                    VerticalTextAlignment="Center"
                                                     TextColor="Black"
                                                     Text="{Binding EventHours, StringFormat='{}{0:hh\\:mm}'}" />
                                             <!--<Label  Grid.Column="3" 
@@ -131,7 +134,9 @@
                         </ListView>
                     </Frame>
                 </StackLayout>
-                
+                <!--<Label x:Name="LblInstructions" 
+                       FontSize="20" 
+                       TextColor="Black" />-->
             </StackLayout>
             
         </ScrollView>
