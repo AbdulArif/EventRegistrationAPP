@@ -38,17 +38,63 @@ namespace EventRegistrationAPP.Services
 
 
         #region Get ALL Events
-        public static async Task<List<EventsInfo>> GetAllEvents(string accessToken)
+        public static async Task<List<EventsInfo>> GetLatestEventsInfo(string accessToken)
         {
             var client = new HttpClient();
 
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
 
-            var json = await client.GetStringAsync(Constants.ApiUrl + "Events/GetAllEventsInfo");
+            var json = await client.GetStringAsync(Constants.ApiUrl + "Events/GetLatestEventsInfo");
 
             var events = JsonConvert.DeserializeObject<List<EventsInfo>>(json);
 
             return events;
+        }
+        #endregion
+
+
+        #region GetCapacityByCapacityId
+        public static async Task<Capacity> GetCapacityByCapacityId(string CapacityId,string accessToken)
+        {
+            var client = new HttpClient();
+
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+
+            var json = await client.GetStringAsync(Constants.ApiUrl + "Capacity/GetCapacityByCapacityId/"+ CapacityId);
+            dynamic resp = JsonConvert.DeserializeObject(json);
+            //Capacity capacity = JsonConvert.DeserializeObject<Capacity>(json);
+            Capacity capacity = resp.ToObject<Capacity>();
+            return capacity;
+        }
+        #endregion
+
+        #region GetCapacityByEventId
+        public static async Task<List<Capacity>> GetCapacityByEventId(string EventId, string accessToken)
+        {
+            var client = new HttpClient();
+
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+
+            var json = await client.GetStringAsync(Constants.ApiUrl + "Capacity/GetCapacityByEventId/"+ EventId);
+
+            var capacities = JsonConvert.DeserializeObject<List<Capacity>>(json);
+
+            return capacities;
+        }
+        #endregion
+
+        #region Add Reservation Details
+        public static async Task PostReservationAsync(Reservation reservation, string accessToken)
+        {
+            var client = new HttpClient();
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+
+            var json = JsonConvert.SerializeObject(reservation);
+            HttpContent content = new StringContent(json);
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+            var response = await client.PostAsync(Constants.ApiUrl + "Reservation/PostReservation", content);
+            
         }
         #endregion
 

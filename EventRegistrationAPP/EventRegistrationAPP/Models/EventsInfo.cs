@@ -10,11 +10,10 @@ namespace EventRegistrationAPP.Models
         public string EventName { get; set; }
         public string EventDescription { get; set; }
         public DateTime EventDate { get; set; }
-        public DateTime EventHours { get; set; }
         public string SpecialInstructions { get; set; }
         public string AddBy { get; set; }
         public DateTime AddDate { get; set; }
-        public string UpdatedBy { get; set; }
-        public DateTime UpdatedDate { get; set; }
+        public object UpdatedBy { get; set; }
+        public object UpdatedDate { get; set; }
     }
 }

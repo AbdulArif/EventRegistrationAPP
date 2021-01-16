@@ -26,7 +26,7 @@ namespace EventRegistrationAPP.Views
         private async void GetAllEvents()
         {
             var accessToken = Preferences.Get("accessToken", string.Empty);
-            var donors = await ApiService.GetAllEvents(accessToken);
+            var donors = await ApiService.GetLatestEventsInfo(accessToken);
             foreach (var donor in donors)
             {
                 EventsCollection.Add(donor);
