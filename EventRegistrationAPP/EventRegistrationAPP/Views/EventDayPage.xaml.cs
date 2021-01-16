@@ -10,21 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace EventRegistrationAPP.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class EventFormPage : ContentPage
+    public partial class EventDayPage : ContentPage
     {
-        public EventFormPage()
+        public EventDayPage()
         {
             InitializeComponent();
-        }
-
-        private void BtnSubmitSeats_Clicked(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TapBack_Tapped(object sender, EventArgs e)
-        {
-            Navigation.PopModalAsync();
         }
     }
 }

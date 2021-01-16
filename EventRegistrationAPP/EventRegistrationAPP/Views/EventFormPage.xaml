@@ -1,12 +1,124 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="EventRegistrationAPP.Views.EventFormPage">
+             x:Class="EventRegistrationAPP.Views.EventFormPage"
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout Spacing="10"
+                         Margin="10">
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="backarrow.png" 
+                           WidthRequest="25"
+                           HeightRequest="25"
+                       HorizontalOptions="Start">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="TapBack" Tapped="TapBack_Tapped"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Start"
+                             Margin="20, 15, 15, 0" >
+                    <Label TextColor="Black"
+                       Text="Date"
+                       FontSize="15"
+                       HorizontalTextAlignment="Center"
+                       HorizontalOptions="Center" />
+                    <Label TextColor="Black"
+                       Text="January 15,201 Monday"
+                       FontSize="15"
+                       Padding="10,0,0,0"
+                       Margin="70, 0, 0, 0"
+                       HorizontalTextAlignment="Center"
+                       HorizontalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Start"
+                             Margin="20, 0, 0, 0" >
+                    <Label TextColor="Black"
+                       Text="Time"
+                       FontSize="15"
+                       HorizontalTextAlignment="Center"
+                       HorizontalOptions="Center" />
+                    <Label TextColor="Black"
+                       Text="11:30 PM"
+                       FontSize="15"
+                       Padding="10,0,0,0"
+                       Margin="70, 0, 0, 0"
+                       HorizontalTextAlignment="Center"
+                       HorizontalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Start"
+                             Margin="20, 0, 0, 0" >
+                    <Label TextColor="Black"
+                       Text="Seats Available"
+                       FontSize="15"
+                       HorizontalTextAlignment="Center"
+                       HorizontalOptions="Center" />
+                    <Label TextColor="Black"
+                       Text="100"
+                       FontSize="15"
+                       Padding="10,0,0,0"
+                       HorizontalTextAlignment="Center"
+                       HorizontalOptions="Center"/>
+                </StackLayout>
+
+                <Frame HasShadow="True"
+                       Padding="25"
+                       Margin="0,15,0,0">
+                    <StackLayout>
+                        <Label Text="Name *" FontSize="15"/>
+                        <Entry Placeholder="Name"
+                               PlaceholderColor="#00e6e6"
+                               TextColor="#80574D"
+                               FontSize="15"
+                               x:Name="EntName"
+                               Keyboard="Text" />
+                        <Label Text="Phone Number *" FontSize="15"/>
+                        <Entry Placeholder="Phone Number"
+                               PlaceholderColor="#00e6e6"
+                               TextColor="#80574D"
+                               FontSize="15"
+                               x:Name="EntPhoneNumber"
+                               Keyboard="Numeric" />
+                        <Label Text="Email *" FontSize="15"/>
+                        <Entry Placeholder="Email"
+                               PlaceholderColor="#00e6e6"
+                               TextColor="#80574D"
+                               FontSize="15"
+                               x:Name="EntEmail"
+                               Keyboard="Email" />
+                        <Label Text="Seats Requested *" FontSize="15"/>
+                        <Entry Placeholder="Seats Requested"
+                               PlaceholderColor="#00e6e6"
+                               TextColor="#80574D"
+                               FontSize="15"
+                               x:Name="EntSeatsBooked"
+                               Keyboard="Numeric" />
+                        <Label Text="Comments *" FontSize="15"/>
+                        <Editor Placeholder="Comments"
+                               PlaceholderColor="#00e6e6"
+                               TextColor="#80574D"
+                               FontSize="15"
+                               MaxLength="180"
+                               x:Name="EntComments"
+                               Keyboard="Default" />
+                    </StackLayout>
+                </Frame>
+                <!--<Button Text="SUBMIT"
+                        TextColor="White"
+                        BackgroundColor="#00e6e6"
+                        CornerRadius="25"
+                        FontSize="20"
+                        x:Name="BtnSubmitSeats"
+                        Clicked="BtnSubmitSeats_Clicked"/>-->
+                <Button Text="SUBMIT"
+                        TextColor="White"
+                        BackgroundColor="#00e6e6"
+                        CornerRadius="25"
+                        FontSize="20"
+                        x:Name="BtnSubmitSeats"
+                        Clicked="BtnSubmitSeats_Clicked"/>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
