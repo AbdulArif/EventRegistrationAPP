@@ -37,8 +37,8 @@ namespace EventRegistrationAPP.Services
         #endregion
 
 
-        #region Get ALL Events
-        public static async Task<List<EventsInfo>> GetLatestEventsInfo(string accessToken)
+        #region Get LatestEventsInfo
+        public static async Task<EventsInfo> GetLatestEventsInfo(string accessToken)
         {
             var client = new HttpClient();
 
@@ -46,8 +46,9 @@ namespace EventRegistrationAPP.Services
 
             var json = await client.GetStringAsync(Constants.ApiUrl + "Events/GetLatestEventsInfo");
 
-            var events = JsonConvert.DeserializeObject<List<EventsInfo>>(json);
-
+            //var events = JsonConvert.DeserializeObject<List<EventsInfo>>(json);
+            dynamic resp = JsonConvert.DeserializeObject(json);
+            EventsInfo events = resp.ToObject<EventsInfo>();
             return events;
         }
         #endregion
@@ -75,7 +76,7 @@ namespace EventRegistrationAPP.Services
 
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
 
-            var json = await client.GetStringAsync(Constants.ApiUrl + "Capacity/GetCapacityByEventId/"+ EventId);
+            var json = await client.GetStringAsync(Constants.ApiUrl + "Capacity/GetCapacityByEventId/" + EventId);
 
             var capacities = JsonConvert.DeserializeObject<List<Capacity>>(json);
 

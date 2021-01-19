@@ -20,20 +20,20 @@ namespace EventRegistrationAPP.Views
         {
             InitializeComponent();
             EventsCollection = new ObservableCollection<EventsInfo>();
-            GetAllEvents();
+            //GetAllEvents();
         }
 
-        private async void GetAllEvents()
-        {
-            var accessToken = Preferences.Get("accessToken", string.Empty);
-            var donors = await ApiService.GetLatestEventsInfo(accessToken);
-            foreach (var donor in donors)
-            {
-                EventsCollection.Add(donor);
-            }
-            EventsListView.ItemsSource = EventsCollection;
-           // LblInstructions.Text = EventsCollection[0].EventDescription;
-        }
+        //private async void GetAllEvents()
+        //{
+        //    var accessToken = Preferences.Get("accessToken", string.Empty);
+        //    var events = await ApiService.GetLatestEventsInfo(accessToken);
+        //    foreach (var donor in events)
+        //    {
+        //        EventsCollection.Add(donor);
+        //    }
+        //    EventsListView.ItemsSource = EventsCollection;
+        //   // LblInstructions.Text = EventsCollection[0].EventDescription;
+        //}
 
         private void EventsListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {

@@ -10,26 +10,89 @@
                 <StackLayout Spacing="5"
                          Margin="10">
                     <Frame HasShadow="False"
-                       Padding="25"
-                       Margin="0,15,0,0">
-                        <StackLayout>
-                            <Grid>
+                           Padding="25"
+                           Margin="0,15,0,0">
+                        <StackLayout Orientation="Vertical" 
+                                     VerticalOptions="Center">
+                            <!--<Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="1*" />
                                     <ColumnDefinition Width="8*" />
                                     <ColumnDefinition Width="1*" />
                                 </Grid.ColumnDefinitions>
                                 <Label Grid.Column="1"
-                       TextColor="#00e6e6"
-                       Text="Event Day"
-                       FontSize="Large"
-                       FontAttributes="Bold"
-                       VerticalOptions="Center"
-                       HorizontalTextAlignment="Center"
-                       HorizontalOptions="Center" />
-                            </Grid>
+                                       TextColor="#00e6e6"
+                                       Text="Event Day"
+                                       FontSize="Large"
+                                       FontAttributes="Bold"
+                                       VerticalOptions="Center"
+                                       HorizontalTextAlignment="Center"
+                                       HorizontalOptions="Center" />
+                            </Grid>-->
+                            <StackLayout>
+                                <Label TextColor="Black"
+                                   Text="Event Day"
+                                   FontSize="Large"
+                                   FontAttributes="Bold"
+                                   HorizontalTextAlignment="Center"
+                                   HorizontalOptions="Center" />
+
+                                <Label TextColor="Black"
+                                    x:Name="LblEventDate"       
+                                    FontSize="20"
+                                    HorizontalTextAlignment="Center"
+                                    HorizontalOptions="Center"/>
+                            </StackLayout>
+                            
+                            <StackLayout Orientation="Horizontal"
+                                         Margin="30,40,0,0"
+                                         Spacing="40">
+                                <Label TextColor="Black"
+                                       Text="Time"
+                                       FontSize="20"
+                                       FontAttributes="Bold"
+                                       HorizontalTextAlignment="Center"
+                                       HorizontalOptions="Center"/>
+                                <Label TextColor="Black"
+                                       Text="Available Seats"
+                                       FontSize="20"
+                                       FontAttributes="Bold"
+                                       HorizontalTextAlignment="Center"
+                                       HorizontalOptions="Center"/>
+                            </StackLayout>
+                            <Frame>
+                                <ListView x:Name="CapacitiesListView" 
+                                          Margin="30,40,0,0">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <ViewCell>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label x:Name="LblTime" 
+                                                        FontSize="20"
+                                                        VerticalTextAlignment="Center"
+                                                        TextColor="Black" 
+                                                        Text="{Binding EventHours}" />
+                                                    <Label x:Name="LblAvailableSeats" 
+                                                        FontSize="20"
+                                                        VerticalTextAlignment="Center"
+                                                        TextColor="Black" 
+                                                        Text="{Binding AvailableSeats}"/>
+                                                    <Button Text="Book Seats"
+                                                            TextColor="White"
+                                                            BackgroundColor="#00e6e6"
+                                                            CornerRadius="25"
+                                                            FontSize="20"
+                                                            x:Name="BtnBookSeats"
+                                                            Clicked="BtnBookSeats_Clicked"/>
+                                                </StackLayout>
+                                            </ViewCell>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </Frame>
                         </StackLayout>
                     </Frame>
+                    
                 </StackLayout>
             </StackLayout>
         </ScrollView>

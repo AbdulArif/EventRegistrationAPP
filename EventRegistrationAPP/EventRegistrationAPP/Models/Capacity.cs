@@ -10,7 +10,7 @@ namespace EventRegistrationAPP.Models
         public string EventId { get; set; }
         public int TotalSeats { get; set; }
         public int AvailableSeats { get; set; }
-        public DateTime EventHours { get; set; }
+        public string EventHours { get; set; }
         public string AddedBy { get; set; }
         public DateTime AddedDate { get; set; }
         public object UpdatedBy { get; set; }

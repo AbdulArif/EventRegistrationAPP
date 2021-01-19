@@ -9,7 +9,7 @@ namespace EventRegistrationAPP
     {
         public App()
         {
-            MainPage = new NavigationPage(new EventFormPage());
+            MainPage = new NavigationPage(new EventDayPage());
             //MainPage = new MainPage();
         }
 
