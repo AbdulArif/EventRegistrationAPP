@@ -49,7 +49,24 @@ namespace EventRegistrationAPP.Views
         }
         private void BtnBookSeats_Clicked(object sender, EventArgs e)
         {
-           // string capactyId = CapacityCollection.
+             //string capactyId = CapacityCollection   
+            //Navigation.PushModalAsync(new EventFormPage(capacityId));
+        }
+
+        private void CapacitiesListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            var itm = (Models.Capacity)e.Item;
+            string capacityId = itm.CapacityId;
+            Preferences.Set("capacityId", capacityId);
+            var id = Preferences.Get("userId", string.Empty);
+
+
+            int availableSeats = itm.AvailableSeats;
+            string eventHours = itm.EventHours;
+            DateTime lDate = itm.AddedDate;
+
+
+            Navigation.PushModalAsync(new EventFormPage(capacityId, eventHours, availableSeats, lDate));
         }
     }
 }

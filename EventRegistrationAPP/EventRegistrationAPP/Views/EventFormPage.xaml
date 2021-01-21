@@ -25,7 +25,7 @@
                            HorizontalTextAlignment="Center"
                            HorizontalOptions="Center" />
                     <Label TextColor="Black"
-                           Text="January 15,201 Monday"
+                           x:Name="LblDate"
                            FontSize="15"
                            Padding="10,0,0,0"
                            Margin="70, 0, 0, 0"
@@ -40,7 +40,7 @@
                            HorizontalTextAlignment="Center"
                            HorizontalOptions="Center" />
                     <Label TextColor="Black"
-                           Text="11:30 PM"
+                           x:Name="LblTime"
                            FontSize="15"
                            Padding="10,0,0,0"
                            Margin="70, 0, 0, 0"
@@ -55,7 +55,7 @@
                            HorizontalTextAlignment="Center"
                            HorizontalOptions="Center" />
                     <Label TextColor="Black"
-                           Text="100"
+                           x:Name="LblSeatsAvailable"
                            FontSize="15"
                            Padding="10,0,0,0"
                            HorizontalTextAlignment="Center"

@@ -8,7 +8,7 @@
         <ScrollView>
             <StackLayout>
                 <StackLayout Spacing="5"
-                         Margin="10">
+                             Margin="10">
                     <Frame HasShadow="False"
                            Padding="25"
                            Margin="0,15,0,0">
@@ -38,14 +38,14 @@
                                    HorizontalOptions="Center" />
 
                                 <Label TextColor="Black"
-                                    x:Name="LblEventDate"       
+                                    x:Name="LblEventDate"      
                                     FontSize="20"
                                     HorizontalTextAlignment="Center"
                                     HorizontalOptions="Center"/>
                             </StackLayout>
-                            
+
                             <StackLayout Orientation="Horizontal"
-                                         Margin="30,40,0,0"
+                                         Margin="20,40,0,0"
                                          Spacing="40">
                                 <Label TextColor="Black"
                                        Text="Time"
@@ -60,36 +60,52 @@
                                        HorizontalTextAlignment="Center"
                                        HorizontalOptions="Center"/>
                             </StackLayout>
-                            <Frame>
-                                <ListView x:Name="CapacitiesListView" 
-                                          Margin="30,40,0,0">
-                                    <ListView.ItemTemplate>
-                                        <DataTemplate>
-                                            <ViewCell>
-                                                <StackLayout Orientation="Horizontal">
-                                                    <Label x:Name="LblTime" 
-                                                        FontSize="20"
-                                                        VerticalTextAlignment="Center"
-                                                        TextColor="Black" 
-                                                        Text="{Binding EventHours}" />
-                                                    <Label x:Name="LblAvailableSeats" 
-                                                        FontSize="20"
-                                                        VerticalTextAlignment="Center"
-                                                        TextColor="Black" 
-                                                        Text="{Binding AvailableSeats}"/>
-                                                    <Button Text="Book Seats"
-                                                            TextColor="White"
-                                                            BackgroundColor="#00e6e6"
-                                                            CornerRadius="25"
-                                                            FontSize="20"
-                                                            x:Name="BtnBookSeats"
-                                                            Clicked="BtnBookSeats_Clicked"/>
-                                                </StackLayout>
-                                            </ViewCell>
-                                        </DataTemplate>
-                                    </ListView.ItemTemplate>
-                                </ListView>
-                            </Frame>
+                            <ListView x:Name="CapacitiesListView" ItemTapped="CapacitiesListView_ItemTapped" >
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <StackLayout Orientation="Horizontal"
+                                                         Margin="20,0,0,0" >
+                                                <Label x:Name="LblTime" 
+                                                                 Margin="0,10,0,0"
+                                                                 FontSize="20" 
+                                                                 FontAttributes="Bold"
+                                                                 HorizontalOptions="Start"
+                                                                 VerticalTextAlignment="Center"
+                                                                 TextColor="Black"
+                                                                 Text="{Binding EventHours}" />
+                                                <Label x:Name="LblAvailableSeats" 
+                                                                 Margin="0,10,0,0"
+                                                                 FontSize="20"
+                                                                 FontAttributes="Bold"
+                                                                 HorizontalOptions="Center"
+                                                                 VerticalTextAlignment="Center"
+                                                                 TextColor="Black" 
+                                                                 Text="{Binding AvailableSeats}" />
+                                                <Label x:Name="LblBookSeats" 
+                                                                 Margin="0,10,0,0"
+                                                                 BackgroundColor="#00e6e6"
+                                                                 TextColor="White"
+                                                                 FontSize="20"
+                                                                 FontAttributes="Bold"
+                                                                 HorizontalOptions="Center"
+                                                                 VerticalTextAlignment="Center"
+                                                                 Text="Book Seats" />
+                                                <!--<Button Text="Book Seats"
+                                                                TextColor="White"
+                                                                BackgroundColor="#00e6e6"
+                                                                CornerRadius="25"
+                                                                FontSize="17"
+                                                                HorizontalOptions="End"
+                                                                Margin="50,0,0,0"
+                                                                BorderColor="#00e6e6"
+                                                                x:Name="BtnBookSeats"
+                                                                Clicked="BtnBookSeats_Clicked" />-->
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
                         </StackLayout>
                     </Frame>
                     
