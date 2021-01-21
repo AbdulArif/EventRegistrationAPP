@@ -18,8 +18,9 @@ namespace EventRegistrationAPP.Views
         public EventFormPage(string id,string eventHours,int availableSeats, DateTime lDate)
         {
             InitializeComponent();
+            string eventDate = Preferences.Get("eventDate", string.Empty);
             LblTime.Text = eventHours;
-            LblDate.Text = lDate.ToShortDateString();
+            LblDate.Text = eventDate;
             LblSeatsAvailable.Text = availableSeats.ToString();
         }
 
@@ -27,7 +28,7 @@ namespace EventRegistrationAPP.Views
         {
             DateTime date = DateTime.UtcNow;
             var accessToken = Preferences.Get("accessToken", string.Empty);
-            var capacityId = Preferences.Get("userId", string.Empty);
+            var capacityId = Preferences.Get("capacityId", string.Empty);
 
             var reservation = new Reservation
             {
@@ -44,7 +45,7 @@ namespace EventRegistrationAPP.Views
             await ApiService.PostReservationAsync(reservation, accessToken);
             await DisplayAlert("Success!", "Seats reserved successfully", "OK");
             await Navigation.PopModalAsync();
-            //Preferences.Clear();
+            Preferences.Clear();
 
         }
 

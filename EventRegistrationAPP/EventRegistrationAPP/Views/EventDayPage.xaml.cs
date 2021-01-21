@@ -32,7 +32,8 @@ namespace EventRegistrationAPP.Views
             var eventsInfos = await ApiService.GetLatestEventsInfo(accessToken);
             string eventDate = string.Format("{0:D}", eventsInfos.EventDate);
             string eventId = eventsInfos.EventId;
-            Preferences.Set("eventId", "eventId");
+            //Preferences.Set("eventId", eventId);
+            Preferences.Set("eventDate", eventDate);
             LblEventDate.Text = eventDate;
             GetCapacityByEventId(eventId);
         }
@@ -58,7 +59,7 @@ namespace EventRegistrationAPP.Views
             var itm = (Models.Capacity)e.Item;
             string capacityId = itm.CapacityId;
             Preferences.Set("capacityId", capacityId);
-            var id = Preferences.Get("userId", string.Empty);
+            var id = Preferences.Get("capacityId", string.Empty);
 
 
             int availableSeats = itm.AvailableSeats;
