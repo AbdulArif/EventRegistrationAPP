@@ -14,7 +14,6 @@ namespace EventRegistrationAPP.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EventFormPage : ContentPage
     {
-        //string capactyId = "ec9a555f-e3f2-4492-b6ea-327786f779ec";
         public EventFormPage(string id,string eventHours,int availableSeats, DateTime lDate)
         {
             InitializeComponent();
@@ -51,7 +50,7 @@ namespace EventRegistrationAPP.Views
 
         private void TapBack_Tapped(object sender, EventArgs e)
         {
-            Navigation.PopModalAsync();
+            Navigation.PushModalAsync(new EventDayPage());
         }
     }
 }

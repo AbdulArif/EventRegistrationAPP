@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EventRegistrationAPP.Views.EventPage"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <StackLayout Spacing="5"
+                         Margin="10">
+                <!--<StackLayout Orientation="Horizontal">
+                    <Image Source="backarrow.png" 
+                           WidthRequest="25"
+                           HeightRequest="25"
+                       HorizontalOptions="Start">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="TapBack" Tapped="TapBack_Tapped"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Label TextColor="#CE0B06"
+                       Text="Recipient"
+                       FontSize="Large"
+                       FontAttributes="Bold"
+                       HorizontalTextAlignment="Center"
+                       HorizontalOptions="Center"
+                       Margin="100,0,30,0" />
+                </StackLayout>-->
+                <Frame HasShadow="True"
+                       Padding="25"
+                       Margin="0,15,0,0">
+                    <StackLayout>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="8*" />
+                                <ColumnDefinition Width="1*" />
+                            </Grid.ColumnDefinitions>
+                            <!--<Image Source="backarrow.png"
+                       HeightRequest="25"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer x:Name="TapBackArrow" />
+                                </Image.GestureRecognizers>
+                            </Image>-->
+                            <Label Grid.Column="1"
+                       TextColor="#00e6e6"
+                       Text="EVENTS"
+                       FontSize="Large"
+                       FontAttributes="Bold"
+                       VerticalOptions="Center"
+                       HorizontalTextAlignment="Center"
+                       HorizontalOptions="Center" />
+                        </Grid>
+                    </StackLayout>
+                </Frame>
+                <!--<Button Text="CLICK TO BOOK"
+                        TextColor="White"
+                        BackgroundColor="#00e6e6"
+                        CornerRadius="25"
+                        x:Name="BtnBook"
+                        Clicked="BtnBook_Clicked"/>-->
+            </StackLayout>
+
+       <StackLayout>
+                    <Frame BackgroundColor="#00e6e6">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"></ColumnDefinition>
+                                <ColumnDefinition Width="3*"></ColumnDefinition>
+                                <ColumnDefinition Width="2.5*"></ColumnDefinition>
+                                <!--<ColumnDefinition Width="2*"></ColumnDefinition>-->
+                            </Grid.ColumnDefinitions>
+
+                            <Label Grid.Row="0" Grid.Column="0" 
+                                   FontAttributes="Bold" 
+                                   FontSize="20" TextColor="White">EventName</Label>
+                            <Label Grid.Row="0" Grid.Column="1" 
+                                   FontAttributes="Bold" 
+                                   FontSize="20" TextColor="White">EventDate</Label>
+                            <Label Grid.Row="0" Grid.Column="2" 
+                                   FontAttributes="Bold" 
+                                   FontSize="20" TextColor="White">Time</Label>
+                            <!--<Label Grid.Row="0" Grid.Column="3" 
+                                   FontAttributes="Bold" 
+                                   FontSize="20" TextColor="White">SpecialInstructions</Label>-->
+                        </Grid>
+                    </Frame>
+
+                    <Frame HasShadow="True">
+                        <ListView x:Name="EventsListView" ItemTapped="EventsListView_ItemTapped" >
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="3*"></ColumnDefinition>
+                                                <ColumnDefinition Width="3*"></ColumnDefinition>
+                                                <ColumnDefinition Width="2.5*"></ColumnDefinition>
+                                                <!--<ColumnDefinition Width="2*"></ColumnDefinition>-->
+                                            </Grid.ColumnDefinitions>
+                                            <Label  Grid.Column="0" 
+                                                    x:Name="LblEventName" 
+                                                    FontSize="17"
+                                                    VerticalTextAlignment="Center"
+                                                    TextColor="Black"
+                                                    Text="{Binding EventName}" />
+                                            <Label  Grid.Column="1" 
+                                                    x:Name="LblEventDate" 
+                                                    FontSize="17"
+                                                    VerticalTextAlignment="Center"
+                                                    TextColor="Black"
+                                                    Text="{Binding EventDate, StringFormat='{0:MMMM dd, yyyy}'}" />
+                                            <Label  Grid.Column="2" 
+                                                    x:Name="LblTime" 
+                                                    FontSize="17"
+                                                    VerticalTextAlignment="Center"
+                                                    TextColor="Black"
+                                                    Text="{Binding EventHours, StringFormat='{}{0:hh\\:mm}'}" />
+                                            <!--<Label  Grid.Column="3" 
+                                                    x:Name="LblCity" 
+                                                    FontSize="16" 
+                                                    TextColor="Black"
+                                                    Text="{Binding SpecialInstructions}" />-->
+                                        </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Frame>
+                </StackLayout>
+                <!--<Label x:Name="LblInstructions" 
+                       FontSize="20" 
+                       TextColor="Black" />-->
+            </StackLayout>
+            
+        </ScrollView>
+    </ContentPage.Content>
+
+</ContentPage>
